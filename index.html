@@ -3,104 +3,236 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>LocalRizz — Home</title>
+<title>LocalRizz — Dominate Local Search</title>
 <meta name="description" content="LocalRizz helps local businesses dominate Google Maps, get a professional website, and connect via WhatsApp. All for ₹5,000 one-time."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="icon" type="image/svg+xml" sizes="32x32" href="favicon-32.svg"/>
+<link rel="icon" type="image/svg+xml" sizes="16x16" href="favicon-16.svg"/>
+<link rel="apple-touch-icon" href="apple-touch-icon.svg"/>
+<meta name="theme-color" content="#137FEC"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <link rel="stylesheet" href="css/style.css"/>
 <style>
-/* HOME SPECIFIC */
-#home{min-height:100vh;display:flex;align-items:center;background:linear-gradient(155deg,#FAFFEE 0%,#f0ffe8 50%,#FAFAFF 100%);padding-top:68px;position:relative;overflow:hidden;}
-.orb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;}
-.o1{width:420px;height:420px;top:-180px;left:-100px;background:rgba(211,255,98,.18);animation:floatOrb 20s ease-in-out infinite;}
-.o2{width:500px;height:500px;top:50%;right:-160px;background:rgba(12,105,81,.10);animation:floatOrb 20s ease-in-out 7s infinite;}
-.o3{width:280px;height:280px;bottom:-80px;left:35%;background:rgba(202,202,252,.25);animation:floatOrb 20s ease-in-out 14s infinite;}
-.hero-grid{max-width:1200px;margin:0 auto;padding:64px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1;width:100%;}
-.badge{display:inline-flex;align-items:center;gap:8px;background:#FAFAFF;border:1px solid #CACAFC;border-radius:20px;padding:9px 18px;font-size:13px;font-weight:600;color:#004534;margin-bottom:24px;}
-.badge-icon{animation:sparkle 2s ease-in-out infinite;display:inline-block;}
-@keyframes sparkle{0%,100%{transform:rotate(0deg) scale(1);}50%{transform:rotate(180deg) scale(1.2);}}
-h1.hero-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;color:#004534;line-height:1.12;margin-bottom:20px;letter-spacing:-1px;}
-.hero-desc{font-size:17px;color:#0C6951;line-height:1.75;margin-bottom:32px;max-width:520px;}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px;}
-.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.stat-box{text-align:center;}
-.stat-emoji{font-size:18px;margin-bottom:4px;}
-.stat-val{font-size:clamp(1.4rem,2.5vw,2rem);font-weight:800;color:#004534;}
-.stat-lbl{font-size:12px;color:#807979;font-weight:500;line-height:1.3;}
-/* Visual card */
-.hero-visual{background:white;border-radius:28px;padding:28px;box-shadow:0 20px 60px rgba(0,69,52,.12);border:1px solid #CACAFC;}
-.maps-card{background:linear-gradient(135deg,#FAFFEE,#FAFAFF);border-radius:20px;padding:20px;margin-bottom:14px;border:1px solid #CACAFC;}
-.maps-lbl{font-size:11px;font-weight:700;color:#807979;margin-bottom:10px;text-transform:uppercase;letter-spacing:.5px;}
-.map-row{background:white;border-radius:12px;padding:12px 16px;margin-bottom:8px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 2px 8px rgba(0,69,52,.06);border:1px solid #EDEDFE;}
-.map-row:last-child{margin-bottom:0;}
-.map-name{font-weight:700;font-size:13px;color:#004534;}
-.map-stars{font-size:11px;color:#f59e0b;margin-top:2px;}
-.map-badge{background:#D3FF62;color:#004534;border-radius:8px;padding:4px 10px;font-size:11px;font-weight:700;}
-.map-badge.g{background:#EDEDFE;color:#807979;}
-.float-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-.fc{border-radius:14px;padding:14px;border:1px solid #CACAFC;}
-.fc:nth-child(1){background:#FAFFEE;animation:floatCard 3s ease-in-out 0s infinite;}
-.fc:nth-child(2){background:#FAFAFF;animation:floatCard 3s ease-in-out .7s infinite;}
-.fc:nth-child(3){background:#ecfdf5;animation:floatCard 3s ease-in-out 1.4s infinite;}
-.fc:nth-child(4){background:#fef3c7;animation:floatCard 3s ease-in-out 2.1s infinite;}
-.fc-e{font-size:20px;margin-bottom:6px;}
-.fc-l{font-size:11px;color:#807979;font-weight:600;}
-.fc-v{font-size:13px;font-weight:800;color:#004534;}
-/* Services preview */
-.services-preview{padding:80px 24px;background:white;}
-.svc-mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:40px auto 0;}
-.svc-mini{background:#FAFAFF;border-radius:24px;padding:28px;border:1px solid #CACAFC;transition:transform .3s,box-shadow .3s;position:relative;overflow:hidden;}
-.svc-mini:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(0,69,52,.1);}
-.svc-mini::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#D3FF62,#0C6951);transform:scaleX(0);transform-origin:left;transition:transform .4s;}
-.svc-mini:hover::before{transform:scaleX(1);}
-.svc-icon{font-size:32px;margin-bottom:16px;}
-.svc-name{font-size:18px;font-weight:700;color:#004534;margin-bottom:10px;}
-.svc-text{font-size:14px;color:#0C6951;line-height:1.6;margin-bottom:16px;}
-.svc-link{font-size:14px;font-weight:700;color:#137FEC;}
-/* Testimonials preview */
-.testi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1200px;margin:40px auto 0;}
-.testi-mini{background:white;border-radius:20px;padding:28px;border:1px solid #CACAFC;box-shadow:0 4px 12px rgba(0,69,52,.06);}
-.testi-quote{font-size:32px;color:#D3FF62;font-weight:800;line-height:1;margin-bottom:12px;}
-.testi-text{font-size:14px;color:#0C6951;line-height:1.7;font-style:italic;margin-bottom:20px;}
-.testi-auth{display:flex;align-items:center;gap:12px;}
-.testi-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;}
-.testi-name{font-weight:700;font-size:14px;color:#004534;}
-.testi-biz{font-size:12px;color:#807979;}
-/* CTA strip */
-.cta-strip{background:linear-gradient(135deg,#004534,#0C6951);padding:80px 24px;text-align:center;}
-.cta-strip h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:#D3FF62;margin-bottom:16px;}
-.cta-strip p{font-size:17px;color:rgba(255,255,255,.8);margin-bottom:32px;}
+:root{--g-dark:#004534;--g-mid:#0C6951;--lime:#D3FF62;--blue:#137FEC;--font-d:'Syne',sans-serif;--font-b:'Inter',sans-serif;}
+*{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
+body{font-family:var(--font-b);background:#fff;color:#111827;overflow-x:hidden;}
+a{text-decoration:none;}
 
-@media(max-width:768px){
-  .hero-grid{grid-template-columns:1fr!important;}
-  .hero-visual-col{display:none;}
-  .stats-row{grid-template-columns:repeat(2,1fr)!important;}
-  .svc-mini-grid{grid-template-columns:1fr!important;}
-  .testi-row{grid-template-columns:1fr!important;}
+/* NAV */
+nav#navbar{position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:1000;background:rgba(255,255,255,.88);backdrop-filter:blur(20px);border:1px solid rgba(202,202,252,.6);border-radius:100px;width:calc(100% - 40px);max-width:1160px;transition:all .4s;box-shadow:0 4px 24px rgba(0,0,0,.07);}
+.nav-inner{padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:58px;}
+.nav-logo{display:flex;align-items:center;gap:10px;}
+.nav-lmark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#137FEC,#0C6951);display:flex;align-items:center;justify-content:center;}
+.nav-lmark svg{width:19px;height:19px;}
+.nav-ltext{font-family:var(--font-d);font-size:17px;font-weight:800;color:#0a0a0a;letter-spacing:-.3px;}
+.nav-ltext span{color:var(--blue);}
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{color:#4b5563;font-size:13px;font-weight:500;padding:6px 12px;border-radius:20px;transition:all .2s;}
+.nav-links a:hover,.nav-links a.active{background:#ecfdf5;color:var(--g-dark);font-weight:600;}
+.nav-cta{background:linear-gradient(135deg,#137FEC,#0C6951)!important;color:#fff!important;border-radius:20px!important;padding:8px 18px!important;font-weight:700!important;box-shadow:0 2px 12px rgba(19,127,236,.35);transition:transform .2s,box-shadow .2s!important;}
+.nav-cta:hover{transform:translateY(-2px)!important;box-shadow:0 6px 20px rgba(19,127,236,.45)!important;}
+.mob-btn{display:none;background:none;border:none;font-size:20px;cursor:pointer;color:#374151;}
+.mob-menu{display:none;flex-direction:column;gap:4px;padding:12px 20px 16px;border-top:1px solid rgba(202,202,252,.4);}
+.mob-menu a{padding:10px 0;color:#374151;font-weight:500;font-size:15px;}
+
+/* HERO */
+#home{min-height:100vh;display:flex;align-items:center;padding-top:90px;position:relative;overflow:hidden;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(19,127,236,.07) 0%,transparent 70%),radial-gradient(ellipse 50% 50% at 90% 60%,rgba(12,105,81,.05) 0%,transparent 60%),#fafffe;}
+.hero-grid{max-width:1180px;margin:0 auto;padding:80px 24px 100px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;z-index:1;width:100%;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(19,127,236,.25);border-radius:100px;padding:7px 16px;font-size:12px;font-weight:600;color:var(--blue);background:rgba(19,127,236,.06);margin-bottom:28px;opacity:0;transform:translateY(20px);}
+.hb-dot{width:7px;height:7px;border-radius:50%;background:var(--blue);animation:pdot 2s ease-in-out infinite;}
+@keyframes pdot{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.6);}}
+h1.htitle{font-family:var(--font-d);font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:#0a0a0a;line-height:1.05;letter-spacing:-2px;margin-bottom:24px;opacity:0;transform:translateY(30px);}
+.htitle .hblue{background:linear-gradient(90deg,#137FEC,#0C6951);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.htitle .hgreen{color:var(--g-mid);}
+.hdesc{font-size:17px;color:#4b5563;line-height:1.8;margin-bottom:36px;max-width:490px;opacity:0;transform:translateY(20px);}
+.hprice{display:inline-flex;align-items:center;gap:5px;background:var(--g-dark);color:var(--lime);border-radius:5px;padding:2px 8px;font-size:15px;font-weight:800;}
+.hbtns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:52px;opacity:0;transform:translateY(20px);}
+.btn-hp{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#137FEC,#0a5c45);color:#fff;border-radius:100px;padding:15px 30px;font-size:16px;font-weight:700;box-shadow:0 4px 20px rgba(19,127,236,.4);transition:all .3s cubic-bezier(.16,1,.3,1);}
+.btn-hp:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 10px 32px rgba(19,127,236,.5);}
+.btn-hp .arr{transition:transform .3s;}
+.btn-hp:hover .arr{transform:translateX(4px);}
+.btn-hg{display:inline-flex;align-items:center;gap:8px;background:rgba(0,0,0,.04);color:#374151;border-radius:100px;padding:15px 28px;font-size:15px;font-weight:600;border:1px solid rgba(0,0,0,.08);transition:all .2s;}
+.btn-hg:hover{background:rgba(0,0,0,.07);}
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;opacity:0;transform:translateY(20px);}
+.hstat{background:#fff;border-radius:15px;padding:15px 12px;border:1px solid rgba(0,0,0,.06);text-align:center;transition:transform .3s;}
+.hstat:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,.08);}
+.hstat-val{font-family:var(--font-d);font-size:1.75rem;font-weight:800;color:var(--g-dark);line-height:1;}
+.hstat-lbl{font-size:11px;color:#9ca3af;font-weight:500;margin-top:4px;line-height:1.3;}
+
+/* HERO VISUAL */
+.hvcol{opacity:0;transform:translateX(40px);}
+.hv{position:relative;}
+.hvc{background:#fff;border-radius:24px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.1);border:1px solid rgba(0,0,0,.06);}
+.hvh{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
+.hvdots span{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:4px;}
+.d1{background:#ff5f57;}.d2{background:#ffbd2e;}.d3{background:#28c840;}
+.hvt{font-size:11px;font-weight:600;color:#9ca3af;font-family:monospace;}
+.mentry{display:flex;align-items:center;justify-content:space-between;background:#f9fafb;border-radius:12px;padding:11px 14px;margin-bottom:8px;border:1px solid #f3f4f6;transition:all .3s;}
+.mentry:last-child{margin-bottom:0;}
+.mentry:hover{background:#ecfdf5;border-color:#d1fae5;}
+.mrank{width:28px;height:28px;border-radius:7px;background:var(--lime);color:var(--g-dark);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+.mrank.s{background:#e5e7eb;color:#6b7280;}
+.minfo{flex:1;margin:0 12px;}
+.mname{font-size:13px;font-weight:700;color:#111827;}
+.mstars{font-size:10px;color:#f59e0b;margin-top:2px;}
+.mbadge{background:#dcfce7;color:#166534;font-size:10px;font-weight:700;padding:3px 8px;border-radius:6px;}
+.hvgrid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px;}
+.hvfc{border-radius:14px;padding:13px 15px;border:1px solid rgba(0,0,0,.06);background:linear-gradient(135deg,rgba(255,255,255,.9),rgba(250,255,238,.5));}
+.hvfc-l{font-size:10px;color:#9ca3af;font-weight:600;text-transform:uppercase;letter-spacing:.3px;}
+.hvfc-v{font-family:var(--font-d);font-size:15px;font-weight:800;color:var(--g-dark);margin-top:2px;}
+.hvfn{position:absolute;bottom:-18px;right:-18px;background:#fff;border-radius:16px;padding:13px 16px;box-shadow:0 8px 28px rgba(0,0,0,.12);border:1px solid rgba(0,0,0,.06);display:flex;align-items:center;gap:12px;animation:nfl 4s ease-in-out infinite;}
+@keyframes nfl{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.ni{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#dcfce7,#bbf7d0);display:flex;align-items:center;justify-content:center;font-size:17px;}
+.nt{font-size:12px;font-weight:700;color:#111827;}
+.ns{font-size:11px;color:#9ca3af;margin-top:1px;}
+.hvfb{position:absolute;top:-14px;left:-14px;background:linear-gradient(135deg,#137FEC,#0C6951);border-radius:14px;padding:12px 15px;box-shadow:0 6px 20px rgba(19,127,236,.3);animation:bfl 3.5s ease-in-out 1s infinite;}
+@keyframes bfl{0%,100%{transform:translateY(0) rotate(-2deg);}50%{transform:translateY(-6px) rotate(2deg);}}
+.bfv{font-family:var(--font-d);font-size:21px;font-weight:800;color:var(--lime);}
+.bfl{font-size:10px;color:rgba(255,255,255,.65);font-weight:500;}
+
+/* MARQUEE */
+.mq-strip{background:#0a0a0a;padding:15px 0;overflow:hidden;}
+.mq-track{display:flex;gap:48px;animation:mq 22s linear infinite;white-space:nowrap;}
+.mq-item{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.45);font-size:13px;font-weight:500;flex-shrink:0;}
+.mq-item strong{color:var(--lime);}
+.mq-dot{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.18);}
+@keyframes mq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SERVICES */
+.svc-sec{padding:120px 24px;background:#fff;position:relative;}
+.svc-sec::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(19,127,236,.15),transparent);}
+.eyebrow{font-size:12px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:2px;margin-bottom:14px;}
+.sec-title{font-family:var(--font-d);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;color:#0a0a0a;letter-spacing:-1.5px;line-height:1.08;margin-bottom:18px;}
+.sec-sub{font-size:16px;color:#6b7280;line-height:1.7;max-width:480px;}
+.svc-layout{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:80px;align-items:center;}
+.svc-stack{display:flex;flex-direction:column;gap:14px;}
+.svc-item{background:#fafafa;border-radius:18px;padding:22px 24px;border:1px solid #f0f0f0;cursor:pointer;transition:all .4s cubic-bezier(.16,1,.3,1);display:flex;gap:18px;align-items:flex-start;}
+.svc-item:hover,.svc-item.active{background:#fff;border-color:rgba(19,127,236,.2);box-shadow:0 8px 32px rgba(0,0,0,.08);transform:translateX(8px);}
+.svc-item.active{border-left:3px solid var(--blue);}
+.svc-iw{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,rgba(19,127,236,.1),rgba(12,105,81,.1));display:flex;align-items:center;justify-content:center;font-size:21px;flex-shrink:0;}
+.svc-item.active .svc-iw{background:linear-gradient(135deg,#137FEC,#0C6951);}
+.svc-tl{font-size:15px;font-weight:700;color:#111827;margin-bottom:5px;}
+.svc-ds{font-size:13px;color:#6b7280;line-height:1.6;}
+.svc-panel{background:linear-gradient(155deg,#f0f9ff,#ecfdf5);border-radius:26px;padding:36px;border:1px solid rgba(0,0,0,.06);min-height:340px;display:flex;align-items:center;justify-content:center;}
+
+/* STATS BAND */
+.sband{background:linear-gradient(135deg,var(--g-dark),#0a3d30);padding:72px 24px;}
+.sband-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:40px;}
+.sb-box{text-align:center;}
+.sb-val{font-family:var(--font-d);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:800;color:var(--lime);line-height:1;}
+.sb-lbl{font-size:13px;color:rgba(255,255,255,.5);font-weight:500;margin-top:8px;}
+
+/* HOW */
+.how-sec{padding:120px 24px;background:#fafafa;}
+.how-inner{max-width:1180px;margin:0 auto;}
+.how-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:64px;}
+.how-step{position:relative;}
+.how-step:not(:last-child)::after{content:'→';position:absolute;right:-24px;top:30px;font-size:22px;color:#d1d5db;font-weight:800;}
+.how-num{font-family:var(--font-d);font-size:4.5rem;font-weight:800;color:rgba(0,0,0,.04);line-height:1;margin-bottom:-18px;}
+.how-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,#137FEC,#0C6951);display:flex;align-items:center;justify-content:center;font-size:23px;margin-bottom:18px;box-shadow:0 4px 16px rgba(19,127,236,.28);}
+.how-title{font-size:17px;font-weight:700;color:#111827;margin-bottom:9px;}
+.how-desc{font-size:14px;color:#6b7280;line-height:1.7;}
+
+/* TESTIMONIALS */
+.testi-sec{padding:120px 24px;background:#fff;}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:1180px;margin:60px auto 0;}
+.tc{border-radius:22px;padding:30px;border:1px solid #f0f0f0;background:#fff;transition:all .4s cubic-bezier(.16,1,.3,1);}
+.tc.featured{background:linear-gradient(155deg,var(--g-dark),#0a3d30);border-color:transparent;transform:translateY(-16px);}
+.tc:hover{transform:translateY(-8px)!important;box-shadow:0 20px 48px rgba(0,0,0,.1);}
+.tc.featured:hover{box-shadow:0 20px 48px rgba(0,69,52,.3)!important;}
+.tq{font-size:46px;font-family:Georgia,serif;line-height:1;color:var(--lime);margin-bottom:14px;display:block;}
+.tt{font-size:14px;line-height:1.75;color:#4b5563;font-style:italic;margin-bottom:22px;}
+.tc.featured .tt{color:rgba(255,255,255,.78);}
+.ta{display:flex;align-items:center;gap:12px;}
+.ta-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;flex-shrink:0;}
+.ta-name{font-size:13px;font-weight:700;color:#111827;}
+.tc.featured .ta-name{color:#fff;}
+.ta-biz{font-size:12px;color:#9ca3af;}
+.tc.featured .ta-biz{color:rgba(255,255,255,.45);}
+
+/* CTA */
+.cta-wrap{padding:0 24px 96px;}
+.cta-blk{max-width:1180px;margin:0 auto;border-radius:28px;background:linear-gradient(135deg,#0a0a0a 0%,#0a3d30 100%);padding:72px 56px;position:relative;overflow:hidden;}
+.cta-blk::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(211,255,98,.07),transparent);}
+.cta-blk h2{font-family:var(--font-d);font-size:clamp(1.9rem,4vw,3rem);font-weight:800;color:#fff;letter-spacing:-1px;margin-bottom:14px;position:relative;}
+.cta-blk h2 span{color:var(--lime);}
+.cta-blk p{font-size:17px;color:rgba(255,255,255,.55);margin-bottom:32px;position:relative;}
+.cta-btns{display:flex;gap:13px;flex-wrap:wrap;position:relative;}
+.btn-clime{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--g-dark);border-radius:100px;padding:15px 30px;font-size:16px;font-weight:800;transition:all .3s;}
+.btn-clime:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(211,255,98,.4);}
+.btn-cghost{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.15);border-radius:100px;padding:15px 26px;font-size:15px;font-weight:600;transition:all .2s;}
+.btn-cghost:hover{background:rgba(255,255,255,.13);}
+.cta-ptag{position:absolute;right:56px;top:50%;transform:translateY(-50%);text-align:center;}
+.cta-pamt{font-family:var(--font-d);font-size:3.8rem;font-weight:800;color:var(--lime);line-height:1;}
+.cta-psub{font-size:12px;color:rgba(255,255,255,.35);margin-top:4px;}
+
+/* FOOTER */
+footer{background:#0a0a0a;padding:68px 24px 28px;}
+.fi{max-width:1180px;margin:0 auto;}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:52px;}
+.fb{font-family:var(--font-d);font-size:22px;font-weight:800;color:#fff;letter-spacing:-.5px;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.fbm{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#137FEC,#0C6951);display:flex;align-items:center;justify-content:center;}
+.fbm svg{width:17px;height:17px;}
+.fdesc{font-size:14px;color:rgba(255,255,255,.32);line-height:1.7;max-width:280px;margin-bottom:22px;}
+.fh{font-size:11px;font-weight:700;color:rgba(255,255,255,.22);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:18px;}
+.fl{display:block;color:rgba(255,255,255,.42);font-size:14px;padding:5px 0;transition:color .2s;}
+.fl:hover{color:#fff;}
+.fbot{border-top:1px solid rgba(255,255,255,.05);padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.fcp{color:rgba(255,255,255,.18);font-size:13px;}
+.wa-bfooter{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;border-radius:10px;padding:10px 15px;font-size:13px;font-weight:700;margin-top:8px;transition:all .2s;}
+.wa-bfooter:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(37,211,102,.4);}
+.wa-float{position:fixed;bottom:26px;right:26px;z-index:9999;width:54px;height:54px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:25px;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:transform .3s;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float::after{content:'';position:absolute;inset:-4px;border-radius:50%;border:2px solid rgba(37,211,102,.4);animation:wring 2.5s ease-out infinite;}
+@keyframes wring{0%{transform:scale(.8);opacity:1;}100%{transform:scale(1.5);opacity:0;}}
+
+/* REVEAL */
+.ru{opacity:0;transform:translateY(40px);}
+.rl{opacity:0;transform:translateX(-40px);}
+.rr{opacity:0;transform:translateX(40px);}
+.rsc{opacity:0;transform:scale(.92);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav#navbar{top:0;border-radius:0;width:100%;left:0;transform:none;border-left:none;border-right:none;border-top:none;}
+  .hero-grid{grid-template-columns:1fr;gap:40px;padding-top:56px;}
+  .hvcol{display:none;}
+  .hstats{grid-template-columns:repeat(2,1fr);}
+  .svc-layout{grid-template-columns:1fr;gap:40px;}
+  .svc-panel{display:none;}
+  .how-steps{grid-template-columns:1fr;gap:28px;}
+  .how-step::after{display:none;}
+  .testi-grid{grid-template-columns:1fr;}
+  .tc.featured{transform:none;}
+  .sband-inner{grid-template-columns:repeat(2,1fr);gap:28px;}
+  .fg{grid-template-columns:1fr 1fr;}
+  .cta-ptag{display:none;}
+  .cta-blk{padding:44px 28px;}
+  .nav-links{display:none;}
+  .mob-btn{display:block;}
+}
+@media(max-width:480px){
+  .fg{grid-template-columns:1fr;}
+  .sband-inner{grid-template-columns:1fr 1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 75" width="184" height="46">
-        <defs>
-          <linearGradient id="pBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4A90E2"/><stop offset="100%" stop-color="#137FEC"/></linearGradient>
-          <radialGradient id="pGlow" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#137FEC" stop-opacity="0.3"/><stop offset="100%" stop-color="#137FEC" stop-opacity="0"/></radialGradient>
-          <filter id="pSh" x="-40%" y="-20%" width="180%" height="180%"><feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#137FEC" flood-opacity="0.4"/></filter>
-          <filter id="aGl" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="1.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-        </defs>
-        <ellipse cx="37" cy="32" rx="28" ry="28" fill="url(#pGlow)"/>
-        <path d="M37 6C25 6 15 16 15 28C15 42 37 66 37 66C37 66 59 42 59 28C59 16 49 6 37 6Z" fill="url(#pBg)" filter="url(#pSh)"/>
-        <circle cx="37" cy="27" r="12" fill="white" opacity="0.12"/>
-        <g filter="url(#aGl)"><polyline points="26,35 31,27 37,31 44,20" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><polyline points="40,18 44,20 42,25" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g>
-        <text x="70" y="40" font-family="'Segoe UI','Arial Black',Arial,sans-serif" font-size="27" font-weight="800" fill="#111827" letter-spacing="-0.5">LocalRizz</text>
-        <text x="214" y="40" font-family="'Segoe UI',Arial,sans-serif" font-size="27" font-weight="400" fill="#137FEC" letter-spacing="-0.5">Digital</text>
-      </svg>
+      <div class="nav-lmark">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3C8 3 5 6 5 10C5 15 12 22 12 22C12 22 19 15 19 10C19 6 16 3 12 3Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/><polyline points="8,13 10,9 12,11 15,6" stroke="#D3FF62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span class="nav-ltext">LocalRizz <span>Digital</span></span>
     </a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="pages/services.html">Services</a>
       <a href="pages/about.html">About</a>
       <a href="pages/pricing.html">Pricing</a>
@@ -117,128 +249,221 @@ h1.hero-title{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;color:#004534;l
     <a href="pages/pricing.html">Pricing</a>
     <a href="pages/faq.html">FAQ</a>
     <a href="pages/contact.html">Contact</a>
-    <a href="pages/contact.html" class="nav-cta">Get Started →</a>
+    <a href="pages/contact.html" class="nav-cta" style="text-align:center;display:block;border-radius:12px;padding:12px;margin-top:8px;">Get Started →</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="home">
-  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
   <div class="hero-grid">
     <div>
-      <div class="badge"><span class="badge-icon">✨</span> Boost Your Local Business</div>
-      <h1 class="hero-title">Transform Your Local Business with <span class="grad-text">Digital Excellence</span></h1>
-      <p class="hero-desc">We help gyms, wellness centers, pet shops, and local businesses dominate Google Maps, create stunning websites, and connect with customers through WhatsApp — all for <strong style="color:#004534">₹5,000 one-time</strong>.</p>
-      <div class="hero-btns">
-        <a href="pages/contact.html" class="btn-primary">Get Started Today →</a>
-        <a href="pages/services.html" class="btn-outline">Our Services</a>
+      <div class="hero-badge" id="hbadge"><span class="hb-dot"></span>#1 Local Business Growth Partner in India</div>
+      <h1 class="htitle" id="htitle">Make Your<br/>Business<br/><span class="hblue">Impossible</span><br/><span class="hgreen">to Ignore</span></h1>
+      <p class="hdesc" id="hdesc">We help gyms, salons, pet shops &amp; local businesses dominate Google Maps, launch stunning websites, and connect with customers via WhatsApp — all for just <span class="hprice">₹5,000</span> one-time.</p>
+      <div class="hbtns" id="hbtns">
+        <a href="pages/contact.html" class="btn-hp">Start Growing Today <span class="arr">→</span></a>
+        <a href="pages/services.html" class="btn-hg">See Services</a>
       </div>
-      <div class="stats-row">
-        <div class="stat-box"><div class="stat-emoji">😊</div><div class="stat-val" data-end="150" data-suffix="+">0+</div><div class="stat-lbl">Happy Clients</div></div>
-        <div class="stat-box"><div class="stat-emoji">🚀</div><div class="stat-val" data-end="200" data-suffix="+">0+</div><div class="stat-lbl">Projects Completed</div></div>
-        <div class="stat-box"><div class="stat-emoji">📈</div><div class="stat-val" data-end="250" data-suffix="%">0%</div><div class="stat-lbl">Avg. Visibility Boost</div></div>
-        <div class="stat-box"><div class="stat-emoji">⭐</div><div class="stat-val" data-end="99" data-suffix="%">0%</div><div class="stat-lbl">Satisfaction Rate</div></div>
+      <div class="hstats" id="hstats">
+        <div class="hstat"><div class="hstat-val" data-end="150" data-suffix="+">0+</div><div class="hstat-lbl">Happy Clients</div></div>
+        <div class="hstat"><div class="hstat-val" data-end="200" data-suffix="+">0+</div><div class="hstat-lbl">Sites Built</div></div>
+        <div class="hstat"><div class="hstat-val" data-end="250" data-suffix="%">0%</div><div class="hstat-lbl">Visibility Boost</div></div>
+        <div class="hstat"><div class="hstat-val" data-end="99" data-suffix="%">0%</div><div class="hstat-lbl">Satisfaction</div></div>
       </div>
     </div>
-    <div class="hero-visual-col">
-      <div class="hero-visual">
-        <div class="maps-card">
-          <div class="maps-lbl">📍 Google Maps Results</div>
-          <div class="map-row"><div><div class="map-name">FitZone Gym</div><div class="map-stars">★★★★★ <span style="color:#807979">4.9</span></div></div><div class="map-badge">#1 Ranked</div></div>
-          <div class="map-row"><div><div class="map-name">Paws &amp; Claws</div><div class="map-stars">★★★★★ <span style="color:#807979">4.8</span></div></div><div class="map-badge g">#2</div></div>
-          <div class="map-row"><div><div class="map-name">Zen Wellness</div><div class="map-stars">★★★★★ <span style="color:#807979">4.7</span></div></div><div class="map-badge g">#3</div></div>
+    <div class="hvcol" id="hvcol">
+      <div class="hv">
+        <div class="hvfb"><div class="bfv">4.9★</div><div class="bfl">Avg. Rating</div></div>
+        <div class="hvc">
+          <div class="hvh"><div class="hvdots"><span class="d1"></span><span class="d2"></span><span class="d3"></span></div><span class="hvt">📍 Google Maps — Local Results</span></div>
+          <div class="mentry"><div class="mrank">#1</div><div class="minfo"><div class="mname">FitZone Gym</div><div class="mstars">★★★★★ 4.9 (312 reviews)</div></div><div class="mbadge">✓ Optimized</div></div>
+          <div class="mentry"><div class="mrank s">#2</div><div class="minfo"><div class="mname">Paws &amp; Claws</div><div class="mstars">★★★★★ 4.8 (198 reviews)</div></div><div class="mbadge">✓ Optimized</div></div>
+          <div class="mentry"><div class="mrank s">#3</div><div class="minfo"><div class="mname">Zen Wellness</div><div class="mstars">★★★★☆ 4.7 (143 reviews)</div></div><div class="mbadge">✓ Optimized</div></div>
+          <div class="hvgrid">
+            <div class="hvfc"><div class="hvfc-l">Maps Ranked</div><div class="hvfc-v">250+</div></div>
+            <div class="hvfc"><div class="hvfc-l">Websites Built</div><div class="hvfc-v">200+</div></div>
+            <div class="hvfc"><div class="hvfc-l">WhatsApp</div><div class="hvfc-v">Connected</div></div>
+            <div class="hvfc"><div class="hvfc-l">Avg Stars</div><div class="hvfc-v">4.9 ⭐</div></div>
+          </div>
         </div>
-        <div class="float-grid">
-          <div class="fc"><div class="fc-e">📍</div><div class="fc-l">Maps Optimized</div><div class="fc-v">250+ Rankings</div></div>
-          <div class="fc"><div class="fc-e">🌐</div><div class="fc-l">Websites Built</div><div class="fc-v">200+ Sites</div></div>
-          <div class="fc"><div class="fc-e">💬</div><div class="fc-l">WhatsApp</div><div class="fc-v">Connected</div></div>
-          <div class="fc"><div class="fc-e">⭐</div><div class="fc-l">Avg. Reviews</div><div class="fc-v">4.9 Stars</div></div>
-        </div>
+        <div class="hvfn"><div class="ni">📈</div><div><div class="nt">+300% walk-ins</div><div class="ns">FitZone Gym, Mumbai</div></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SERVICES PREVIEW -->
-<section class="services-preview">
-  <div class="text-center">
-    <div class="tag">🛠️ What We Do</div>
-    <h2 class="section-title">Three Powerful Services, <span class="grad-text">One Package</span></h2>
-    <p class="section-sub">Everything a local business needs to dominate online</p>
-  </div>
-  <div class="svc-mini-grid">
-    <div class="svc-mini reveal">
-      <div class="svc-icon">📍</div>
-      <div class="svc-name">Google Maps Optimization</div>
-      <div class="svc-text">Dominate local search and get found by customers nearby. We optimize your Google Business Profile for top rankings.</div>
-      <a href="pages/services.html" class="svc-link">Learn more →</a>
-    </div>
-    <div class="svc-mini reveal">
-      <div class="svc-icon">🌐</div>
-      <div class="svc-name">Website Creation</div>
-      <div class="svc-text">Get a stunning mobile-first website that converts visitors. We even buy and set up your domain for you!</div>
-      <a href="pages/services.html" class="svc-link">Learn more →</a>
-    </div>
-    <div class="svc-mini reveal">
-      <div class="svc-icon">💬</div>
-      <div class="svc-name">WhatsApp Integration</div>
-      <div class="svc-text">Connect with customers instantly through WhatsApp Business. Automate replies and close more bookings.</div>
-      <a href="pages/services.html" class="svc-link">Learn more →</a>
-    </div>
-  </div>
-</section>
-
-<!-- TESTIMONIALS PREVIEW -->
-<section class="section" style="background:#FAFFEE;">
-  <div class="section-inner">
-    <div class="text-center">
-      <div class="tag amber">⭐ Client Stories</div>
-      <h2 class="section-title">What Our Clients Say</h2>
-    </div>
-    <div class="testi-row">
-      <div class="testi-mini reveal"><div class="testi-quote">"</div><p class="testi-text">LocalRizz transformed our online presence! Our Google Maps visibility increased by 300% and we're getting more walk-ins than ever.</p><div class="testi-auth"><div class="testi-av" style="background:#D3FF62;color:#004534;">RK</div><div><div class="testi-name">Rajesh Kumar</div><div class="testi-biz">FitZone Gym, Mumbai</div></div></div></div>
-      <div class="testi-mini reveal"><div class="testi-quote">"</div><p class="testi-text">The website is beautiful and WhatsApp integration made communication so easy. They even bought our domain for us! Highly recommend!</p><div class="testi-auth"><div class="testi-av" style="background:#0C6951;color:white;">PS</div><div><div class="testi-name">Priya Sharma</div><div class="testi-biz">Paws &amp; Claws Pet Shop, Pune</div></div></div></div>
-      <div class="testi-mini reveal"><div class="testi-quote">"</div><p class="testi-text">Professional service and excellent results. Our online bookings have doubled since working with LocalRizz. Fast delivery, just results!</p><div class="testi-auth"><div class="testi-av" style="background:#004534;color:#D3FF62;">AP</div><div><div class="testi-name">Amit Patel</div><div class="testi-biz">Zen Wellness Center, Bangalore</div></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA STRIP -->
-<div class="cta-strip">
-  <h2>Ready to Grow Your Business?</h2>
-  <p>Join 150+ local businesses already rising with us. One-time ₹5,000 — no monthly fees.</p>
-  <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-    <a href="pages/contact.html" class="btn-primary">Get Started Today →</a>
-    <a href="pages/pricing.html" class="btn-white">View Pricing</a>
+<div class="mq-strip">
+  <div class="mq-track">
+    <div class="mq-item"><strong>Google Maps Optimization</strong></div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>Website Creation</strong></div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>WhatsApp Integration</strong></div><div class="mq-dot"></div>
+    <div class="mq-item">₹5,000 One-Time</div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>150+ Happy Clients</strong></div><div class="mq-dot"></div>
+    <div class="mq-item">No Monthly Fees</div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>Pan-India Service</strong></div><div class="mq-dot"></div>
+    <div class="mq-item">250%+ Avg. Visibility Boost</div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>Google Maps Optimization</strong></div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>Website Creation</strong></div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>WhatsApp Integration</strong></div><div class="mq-dot"></div>
+    <div class="mq-item">₹5,000 One-Time</div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>150+ Happy Clients</strong></div><div class="mq-dot"></div>
+    <div class="mq-item">No Monthly Fees</div><div class="mq-dot"></div>
+    <div class="mq-item"><strong>Pan-India Service</strong></div><div class="mq-dot"></div>
+    <div class="mq-item">250%+ Avg. Visibility Boost</div><div class="mq-dot"></div>
   </div>
 </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-grid">
-      <div>
-        <a href="index.html" style="display:inline-block;margin-bottom:16px;">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 75" width="160" height="40">
-            <defs><linearGradient id="fpBg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4A90E2"/><stop offset="100%" stop-color="#137FEC"/></linearGradient><radialGradient id="fpGl" cx="50%" cy="40%" r="60%"><stop offset="0%" stop-color="#137FEC" stop-opacity="0.3"/><stop offset="100%" stop-color="#137FEC" stop-opacity="0"/></radialGradient><filter id="fpSh" x="-40%" y="-20%" width="180%" height="180%"><feDropShadow dx="0" dy="3" stdDeviation="3.5" flood-color="#137FEC" flood-opacity="0.4"/></filter></defs>
-            <ellipse cx="37" cy="32" rx="28" ry="28" fill="url(#fpGl)"/>
-            <path d="M37 6C25 6 15 16 15 28C15 42 37 66 37 66C37 66 59 42 59 28C59 16 49 6 37 6Z" fill="url(#fpBg)" filter="url(#fpSh)"/>
-            <circle cx="37" cy="27" r="12" fill="white" opacity="0.12"/>
-            <polyline points="26,35 31,27 37,31 44,20" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <polyline points="40,18 44,20 42,25" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="70" y="40" font-family="'Segoe UI',Arial,sans-serif" font-size="27" font-weight="800" fill="white" letter-spacing="-0.5">LocalRizz</text>
-            <text x="214" y="40" font-family="'Segoe UI',Arial,sans-serif" font-size="27" font-weight="400" fill="#137FEC" letter-spacing="-0.5">Digital</text>
-          </svg>
-        </a>
-        <p class="footer-desc">Empowering local businesses with digital solutions. Google Maps, Websites, WhatsApp — all for ₹5,000 one-time.</p>
+<section class="svc-sec">
+  <div class="svc-layout">
+    <div>
+      <div class="eyebrow ru">What We Do</div>
+      <h2 class="sec-title ru">Three services.<br/>One package.<br/><span style="color:var(--blue)">Zero stress.</span></h2>
+      <p class="sec-sub ru" style="margin-bottom:36px;">Everything a local business needs to go from invisible to unforgettable online.</p>
+      <div class="svc-stack">
+        <div class="svc-item active ru" onclick="setSvc(this,0)"><div class="svc-iw">📍</div><div><div class="svc-tl">Google Maps Optimization</div><div class="svc-ds">Rank #1 locally. We optimize your entire Google Business Profile.</div></div></div>
+        <div class="svc-item ru" onclick="setSvc(this,1)"><div class="svc-iw">🌐</div><div><div class="svc-tl">Professional Website</div><div class="svc-ds">Mobile-first website with domain included. Converts visitors into customers.</div></div></div>
+        <div class="svc-item ru" onclick="setSvc(this,2)"><div class="svc-iw">💬</div><div><div class="svc-tl">WhatsApp Integration</div><div class="svc-ds">Connect with customers via WhatsApp Business with automated replies.</div></div></div>
       </div>
-      <div><div class="footer-heading">Pages</div><a href="index.html" class="footer-link">Home</a><a href="pages/services.html" class="footer-link">Services</a><a href="pages/about.html" class="footer-link">About</a><a href="pages/pricing.html" class="footer-link">Pricing</a></div>
-      <div><div class="footer-heading">Company</div><a href="pages/about.html" class="footer-link">About Us</a><a href="pages/faq.html" class="footer-link">FAQ</a><a href="pages/contact.html" class="footer-link">Contact</a></div>
     </div>
-    <div class="footer-bottom"><span class="footer-copy">© 2025 LocalRizz. All rights reserved.</span><span class="footer-copy">Made with ❤️ for local businesses across India</span></div>
+    <div class="svc-panel rr" id="svc-panel">
+      <div id="svc-content" style="text-align:center;width:100%;">
+        <div style="font-size:60px;margin-bottom:22px;">📍</div>
+        <div style="font-family:var(--font-d);font-size:21px;font-weight:800;color:var(--g-dark);margin-bottom:12px;">Google Maps Mastery</div>
+        <div style="font-size:15px;color:#6b7280;line-height:1.7;max-width:290px;margin:0 auto 24px;">Rank #1 in your area with optimized photos, keywords, posts &amp; review management.</div>
+        <div style="display:flex;flex-direction:column;gap:9px;text-align:left;">
+          <div style="display:flex;gap:10px;align-items:center;background:white;border-radius:11px;padding:11px 14px;border:1px solid #e5e7eb;"><span style="color:var(--blue);font-weight:700;font-size:13px;">✓</span><span style="font-size:13px;color:#374151;">Google Business Profile setup</span></div>
+          <div style="display:flex;gap:10px;align-items:center;background:white;border-radius:11px;padding:11px 14px;border:1px solid #e5e7eb;"><span style="color:var(--blue);font-weight:700;font-size:13px;">✓</span><span style="font-size:13px;color:#374151;">Local keyword optimization</span></div>
+          <div style="display:flex;gap:10px;align-items:center;background:white;border-radius:11px;padding:11px 14px;border:1px solid #e5e7eb;"><span style="color:var(--blue);font-weight:700;font-size:13px;">✓</span><span style="font-size:13px;color:#374151;">Photo &amp; review strategy</span></div>
+          <div style="display:flex;gap:10px;align-items:center;background:white;border-radius:11px;padding:11px 14px;border:1px solid #e5e7eb;"><span style="color:var(--blue);font-weight:700;font-size:13px;">✓</span><span style="font-size:13px;color:#374151;">Monthly local posts</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="sband">
+  <div class="sband-inner">
+    <div class="sb-box ru"><div class="sb-val" data-end="150" data-suffix="+">0+</div><div class="sb-lbl">Local Businesses Served</div></div>
+    <div class="sb-box ru"><div class="sb-val" data-end="300" data-suffix="%">0%</div><div class="sb-lbl">Avg. Maps Visibility Boost</div></div>
+    <div class="sb-box ru"><div class="sb-val" data-end="98" data-suffix="%">0%</div><div class="sb-lbl">Client Satisfaction Rate</div></div>
+    <div class="sb-box ru"><div class="sb-val" data-end="5" data-prefix="₹" data-suffix="k">₹0k</div><div class="sb-lbl">One-Time Price, No Monthly Fees</div></div>
+  </div>
+</div>
+
+<section class="how-sec">
+  <div class="how-inner">
+    <div style="text-align:center;">
+      <div class="eyebrow ru">Process</div>
+      <h2 class="sec-title ru" style="margin:0 auto 16px;">Up and running<br/><span style="color:var(--blue)">in 7 days</span></h2>
+      <p class="sec-sub ru" style="margin:0 auto;">No technical knowledge needed. We handle everything.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step ru"><div class="how-num">01</div><div class="how-icon">📋</div><div class="how-title">Share Your Details</div><div class="how-desc">Fill out a simple form or WhatsApp us. Takes 5 minutes and we ask only what we need.</div></div>
+      <div class="how-step ru"><div class="how-num">02</div><div class="how-icon">⚡</div><div class="how-title">We Build Everything</div><div class="how-desc">Our team sets up your Google listing, builds your website, and integrates WhatsApp — in 7 days.</div></div>
+      <div class="how-step ru"><div class="how-num">03</div><div class="how-icon">🚀</div><div class="how-title">Watch Customers Come</div><div class="how-desc">Go live and see real results — more calls, walk-ins, and online bookings from day one.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="testi-sec">
+  <div style="max-width:1180px;margin:0 auto;text-align:center;">
+    <div class="eyebrow ru">Client Stories</div>
+    <h2 class="sec-title ru">Real results,<br/><span style="color:var(--blue)">real people</span></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="tc ru"><span class="tq">"</span><p class="tt">LocalRizz transformed our online presence! Our Google Maps visibility increased by 300% and we're getting more walk-ins than ever. Worth every rupee.</p><div class="ta"><div class="ta-av" style="background:#D3FF62;color:#004534;">RK</div><div><div class="ta-name">Rajesh Kumar</div><div class="ta-biz">FitZone Gym, Mumbai</div></div></div></div>
+    <div class="tc featured rsc"><span class="tq">"</span><p class="tt">The website is absolutely beautiful and the WhatsApp integration changed how we communicate with customers. They even bought our domain for us!</p><div class="ta"><div class="ta-av" style="background:rgba(211,255,98,.2);color:#D3FF62;">PS</div><div><div class="ta-name">Priya Sharma</div><div class="ta-biz">Paws &amp; Claws Pet Shop, Pune</div></div></div></div>
+    <div class="tc ru"><span class="tq">"</span><p class="tt">Professional team, fast delivery, excellent results. Our online bookings have doubled since working with LocalRizz. They just get it done.</p><div class="ta"><div class="ta-av" style="background:#dcfce7;color:#166534;">AP</div><div><div class="ta-name">Amit Patel</div><div class="ta-biz">Zen Wellness Center, Bangalore</div></div></div></div>
+  </div>
+</section>
+
+<div class="cta-wrap">
+  <div class="cta-blk rsc">
+    <h2>Ready to <span>dominate</span><br/>your local market?</h2>
+    <p>Join 150+ businesses already growing with LocalRizz. One payment, lifetime results.</p>
+    <div class="cta-btns">
+      <a href="pages/contact.html" class="btn-clime">Get Started — ₹5,000 Only →</a>
+      <a href="pages/pricing.html" class="btn-cghost">View Full Pricing</a>
+    </div>
+    <div class="cta-ptag"><div class="cta-pamt">₹5k</div><div class="cta-psub">one-time · no monthly fees</div></div>
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <div class="fg">
+      <div>
+        <div class="fb"><div class="fbm"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3C8 3 5 6 5 10C5 15 12 22 12 22C12 22 19 15 19 10C19 6 16 3 12 3Z" stroke="white" stroke-width="1.8"/><polyline points="8,13 10,9 12,11 15,6" stroke="#D3FF62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>LocalRizz</div>
+        <p class="fdesc">Empowering local businesses with digital solutions. Google Maps, Websites, WhatsApp — all for ₹5,000 one-time.</p>
+        <a href="https://wa.me/918094285616" target="_blank" class="wa-bfooter">💬 Chat on WhatsApp</a>
+      </div>
+      <div><div class="fh">Pages</div><a href="index.html" class="fl">Home</a><a href="pages/services.html" class="fl">Services</a><a href="pages/about.html" class="fl">About</a><a href="pages/pricing.html" class="fl">Pricing</a></div>
+      <div><div class="fh">Company</div><a href="pages/about.html" class="fl">About Us</a><a href="pages/faq.html" class="fl">FAQ</a><a href="pages/contact.html" class="fl">Contact</a></div>
+      <div><div class="fh">Contact</div><a href="mailto:ydvrahul1906@gmail.com" class="fl">📧 ydvrahul1906@gmail.com</a><a href="tel:+918094285616" class="fl">📞 +91 80942 85616</a><span class="fl">📍 Akbarpur Nagar, Ahmedabad</span></div>
+    </div>
+    <div class="fbot"><span class="fcp">© 2025 LocalRizz. All rights reserved.</span><span class="fcp">Made with ❤️ for local businesses across India</span></div>
   </div>
 </footer>
+
 <a href="https://wa.me/918094285616" target="_blank" class="wa-float">💬</a>
 <script src="js/main.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+window.addEventListener('DOMContentLoaded', () => {
+  const tl = gsap.timeline({ defaults: { ease:'power3.out' } });
+  tl.to('#hbadge',  { opacity:1, y:0, duration:.55, delay:.15 })
+    .to('#htitle',  { opacity:1, y:0, duration:.7  }, '-=.28')
+    .to('#hdesc',   { opacity:1, y:0, duration:.6  }, '-=.38')
+    .to('#hbtns',   { opacity:1, y:0, duration:.55 }, '-=.32')
+    .to('#hstats',  { opacity:1, y:0, duration:.55 }, '-=.28')
+    .to('#hvcol',   { opacity:1, x:0, duration:.8  }, '-=.55');
+
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (!nav) return;
+    if (window.scrollY > 80) { nav.style.background='rgba(255,255,255,.97)'; nav.style.boxShadow='0 4px 32px rgba(0,0,0,.1)'; }
+    else { nav.style.background='rgba(255,255,255,.88)'; nav.style.boxShadow='0 4px 24px rgba(0,0,0,.07)'; }
+  });
+
+  document.querySelectorAll('.ru').forEach((el,i)=>{
+    gsap.to(el,{scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'},opacity:1,y:0,duration:.65,delay:(i%4)*.08,ease:'power3.out'});
+  });
+  document.querySelectorAll('.rl').forEach(el=>{
+    gsap.to(el,{scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'},opacity:1,x:0,duration:.75,ease:'power3.out'});
+  });
+  document.querySelectorAll('.rr').forEach(el=>{
+    gsap.to(el,{scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'},opacity:1,x:0,duration:.75,ease:'power3.out'});
+  });
+  document.querySelectorAll('.rsc').forEach(el=>{
+    gsap.to(el,{scrollTrigger:{trigger:el,start:'top 88%',toggleActions:'play none none none'},opacity:1,scale:1,duration:.8,ease:'back.out(1.4)'});
+  });
+
+  document.querySelectorAll('[data-end]').forEach(el=>{
+    ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>animCounter(el)});
+  });
+});
+
+const svcPanels=[
+  {icon:'📍',title:'Google Maps Mastery',desc:'Rank #1 in your area with optimized photos, keywords, posts &amp; review management.',checks:['Google Business Profile setup','Local keyword optimization','Photo &amp; review strategy','Monthly local posts']},
+  {icon:'🌐',title:'Stunning Website',desc:'A custom mobile-first website with your domain included. Built to convert visitors into paying customers.',checks:['Custom design &amp; development','Domain &amp; hosting included','Mobile-first responsive','SEO foundation built in']},
+  {icon:'💬',title:'WhatsApp Business',desc:'Connect with customers instantly. Automated replies, booking links, and a professional profile.',checks:['WhatsApp Business setup','Automated reply flows','Click-to-chat integration','Broadcast list setup']}
+];
+
+function setSvc(el,idx){
+  document.querySelectorAll('.svc-item').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  const p=svcPanels[idx];
+  const c=document.getElementById('svc-content');
+  gsap.to(c,{opacity:0,y:8,duration:.18,onComplete:()=>{
+    c.innerHTML=`<div style="font-size:60px;margin-bottom:22px;">${p.icon}</div><div style="font-family:'Syne',sans-serif;font-size:21px;font-weight:800;color:var(--g-dark);margin-bottom:12px;">${p.title}</div><div style="font-size:15px;color:#6b7280;line-height:1.7;max-width:290px;margin:0 auto 24px;">${p.desc}</div><div style="display:flex;flex-direction:column;gap:9px;text-align:left;">${p.checks.map(ch=>`<div style="display:flex;gap:10px;align-items:center;background:white;border-radius:11px;padding:11px 14px;border:1px solid #e5e7eb;"><span style="color:var(--blue);font-weight:700;font-size:13px;">✓</span><span style="font-size:13px;color:#374151;">${ch}</span></div>`).join('')}</div>`;
+    gsap.to(c,{opacity:1,y:0,duration:.28});
+  }});
+}
+
+function animCounter(el){
+  const end=parseInt(el.dataset.end),suf=el.dataset.suffix||'',pre=el.dataset.prefix||'',dur=1800;
+  let s;function step(n){if(!s)s=n;const p=Math.min((n-s)/dur,1),e=1-Math.pow(1-p,3);el.textContent=pre+Math.floor(e*end)+suf;if(p<1)requestAnimationFrame(step);else el.textContent=pre+end+suf;}
+  requestAnimationFrame(step);
+}
+</script>
 </body>
 </html>
