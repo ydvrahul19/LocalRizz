@@ -69,13 +69,6 @@
   >LocalRise</text>
 
   <!-- "Digital" in blue -->
-  <text
-    x="213" y="38"
-    font-family="'Segoe UI', 'Arial Black', Arial, sans-serif"
-    font-size="28"
-    font-weight="400"
-    fill="#137FEC"
-    letter-spacing="-0.5"
-  >Digital</text>
+
 
 </svg>
